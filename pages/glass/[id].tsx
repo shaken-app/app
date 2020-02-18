@@ -2,10 +2,10 @@ import React from "react";
 import Router, { useRouter } from "next/router";
 import useSWR from "swr";
 
-import { ViewItemHeader } from "../../common/ui/ViewItemHeader";
-import { deleteGlass, READ_COCKTAIL_BY_ID } from "../../common/resolvers";
-import { API } from "../../common/helpers";
 import { request } from "graphql-request";
+import { API } from "../../src/common/helpers";
+import { deleteGlass, READ_COCKTAIL_BY_ID } from "../../src/common/resolvers";
+import { ViewItemHeader } from "../../src/common/ui/ViewItemHeader";
 
 const routeHome = () => Router.push({ pathname: "/" });
 

@@ -15,7 +15,7 @@ export default class MyDocument extends Document {
     return (
       <html>
         <Head>
-          <link rel="stylesheet" href="./static/style.css" />
+          <link rel="stylesheet" href="/static/style.css" />
         </Head>
         <body>
           <Main />

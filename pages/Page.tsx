@@ -2,6 +2,7 @@ import React, { ReactNode } from "react";
 import Meta from "./Meta";
 import Header from "../src/common/ui/Header";
 import styled from "styled-components";
+import PageWrap from "../src/components/page/PageWrap";
 
 const PageRoot = styled.div`
   margin: 0;
@@ -16,7 +17,7 @@ const Page = ({ children }: { children: ReactNode }) => (
     <Meta />
     <PageRoot>
       <Header />
-      {children}
+      <PageWrap>{children}</PageWrap>
     </PageRoot>
   </>
 );

@@ -41,8 +41,7 @@ const ItemButton = ({
     key={id}
     onClick={() => {
       Router.push({
-        pathname: path,
-        query: { id }
+        pathname: `${path}/${id}`,
       }).then(null);
     }}
   >

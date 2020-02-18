@@ -2,13 +2,14 @@ import React from "react";
 import Router, { useRouter } from "next/router";
 import useSWR from "swr";
 
-import { ViewItemHeader } from "../../common/ui/ViewItemHeader";
+import { ViewItemHeader } from "../../src/common/ui/ViewItemHeader";
 import styled from "styled-components";
-import { deleteCocktail, READ_COCKTAIL_BY_ID } from "../../common/resolvers";
-import { Cocktail } from "../../common/interfaces";
-import { API } from "../../common/helpers";
+import { deleteCocktail, READ_COCKTAIL_BY_ID } from "../../src/common/resolvers";
+import { Cocktail } from "../../src/common/interfaces";
+import { API } from "../../src/common/helpers";
 import { request } from "graphql-request";
-import Button from "../../common/ui/Button";
+import Button from "../../src/common/ui/Button";
+import PageWrap from "../../src/components/page/PageWrap";
 
 const routeHome = () => Router.push({ pathname: "/" });
 
@@ -34,19 +35,20 @@ const CocktailInfo = ({ info, glass }: Cocktail) => (
 
 export default () => {
   const {
-    query: { id }
+    query: { id },
   } = useRouter();
+
+  if (!id) return <div>Loading</div>;
 
   const { data } = useSWR(READ_COCKTAIL_BY_ID, query =>
     request(API, query, { id })
   );
 
-  console.log(data);
 
   if (!data) return <div>Loading</div>;
 
   return (
-    <>
+    <PageWrap>
       <ViewItemHeader
         {...{
           deleteItem: () => deleteCocktail(id),
@@ -56,6 +58,6 @@ export default () => {
         }}
       />
       <CocktailInfo {...data.cocktail} />
-    </>
+    </PageWrap>
   );
 };
