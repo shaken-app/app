@@ -5,6 +5,7 @@ import useSWR from "swr";
 import { ViewItemHeader } from "../../src/common/ui/ViewItemHeader";
 import styled from "styled-components";
 import {
+  DELETE_COCKTAIL,
   deleteCocktail,
   READ_COCKTAIL_BY_ID
 } from "../../src/common/resolvers";
@@ -13,6 +14,7 @@ import { API } from "../../src/common/helpers";
 import { request } from "graphql-request";
 import Button from "../../src/common/ui/Button";
 import PageWrap from "../../src/components/page/PageWrap";
+import { allQueries } from "../../src/components/list/ListItems";
 
 const routeHome = () => Router.push({ pathname: "/" });
 
@@ -36,8 +38,12 @@ const CocktailInfo = ({ info, glass }: CocktailProps) => (
   </>
 );
 
-const Cocktail = ({ data, id }) => {
-  if (!data) return <div>Loading</div>;
+const Cocktail = ({ data: initialData, id }) => {
+  if (!initialData) return <div>Loading</div>;
+
+  const { data } = useSWR(READ_COCKTAIL_BY_ID, query => request(API, query), {
+    initialData
+  });
 
   console.log(data);
 
@@ -63,11 +69,6 @@ Cocktail.getInitialProps = async context => {
 
   let data;
   await request(API, READ_COCKTAIL_BY_ID, { id }).then(found => (data = found));
-
-
-  // const { data } = await useSWR(READ_COCKTAIL_BY_ID, query =>
-  //   request(API, query, { id })
-  // );
 
   return { data, id };
 };
