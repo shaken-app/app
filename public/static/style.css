@@ -1,0 +1,63 @@
+@font-face {
+  src: url(/static/font/Lehigh-Personal-Thin.otf);
+  font-family: lehigh;
+  font-weight: 100;
+}
+@font-face {
+  src: url(/static/font/Lehigh-Personal-Light.otf);
+  font-family: lehigh;
+  font-weight: 200;
+}
+@font-face {
+  src: url(/static/font/Lehigh-Personal-Regular.otf);
+  font-family: lehigh;
+  font-weight: 400;
+}
+@font-face {
+  src: url(/static/font/Lehigh-Personal-SemiBold.otf);
+  font-family: lehigh;
+  font-weight: 500;
+}
+@font-face {
+  src: url(/static/font/Lehigh-Personal-Bold.otf);
+  font-family: lehigh;
+  font-weight: 700;
+}
+@font-face {
+  src: url(/static/font/Lehigh-Personal-Black.otf);
+  font-family: lehigh;
+  font-weight: 900;
+}
+
+@font-face {
+  src: url(/static/font/Montserrat-Black.ttf);
+  font-family: Montserrat;
+  font-weight: 900;
+}
+@font-face {
+  src: url("/static/font/CoreSansA45-webfont.woff2");
+  font-family: Core Sans;
+  font-weight: 400;
+}
+@font-face {
+  src: url("/static/font/CoreSansA55-webfont.woff2");
+  font-family: Core Sans;
+  font-weight: 500;
+}
+@font-face {
+  src: url("/static/font/CoreSansA65-webfont.woff2");
+  font-family: Core Sans;
+  font-weight: 600;
+}
+
+html, body {
+  margin: 0;
+  font-family: "Core Sans", sans-serif;
+  background: linear-gradient(-60deg, #2c3440, #14181c);
+}
+
+#__next{
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
