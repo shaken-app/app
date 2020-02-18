@@ -34,8 +34,12 @@ const LogoLink = styled.div`
   -webkit-text-fill-color: transparent;
 `;
 
+const Logo = styled.svg`
+  width: 36px;
+`;
+
 const LogoSvg = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 116">
+  <Logo xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 116">
     <defs>
       <linearGradient id="myGradient" gradientTransform="rotate(90)">
         <stop offset="5%" stopColor="#FDC830" />
@@ -46,18 +50,14 @@ const LogoSvg = () => (
       fill="url('#myGradient')"
       d="M127 2l-5-2H6a6 6 0 0 0-6 7l23 104c1 3 3 5 6 5h70c3 0 5-2 6-5L128 7l-1-5zM64 87a29 29 0 1 1 0-58 29 29 0 0 1 0 58z"
     />
-  </svg>
+  </Logo>
 );
-
-const Logo = styled(LogoSvg)`
-  width: 36px;
-`;
 
 export default () => (
   <Header>
     <Link href="/">
       <LogoLink>
-        <Logo />
+        <LogoSvg />
         Shaken
       </LogoLink>
     </Link>
