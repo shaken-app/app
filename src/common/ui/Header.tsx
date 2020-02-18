@@ -39,7 +39,11 @@ const Logo = styled.svg`
 `;
 
 const LogoSvg = () => (
-  <Logo xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 116">
+  <Logo
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 128 116"
+    style={{ width: 36 }}
+  >
     <defs>
       <linearGradient id="myGradient" gradientTransform="rotate(90)">
         <stop offset="5%" stopColor="#FDC830" />
