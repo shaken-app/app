@@ -3,7 +3,7 @@
     "target": "es2017",
     "module": "commonjs",
     "rootDir": "./src",
-    "outDir": "../out/functions",
+    "outDir": "../functions-out",
     "strict": true,
     "typeRoots": [
       "node_modules/@types"
