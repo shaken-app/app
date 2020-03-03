@@ -7,6 +7,7 @@ const s3 = new AWS.S3();
 exports.handler = async () => await getUploadURL();
 
 const getUploadURL = async () => {
+  console.log('Ok here bud');
   const actionId = uuidv4();
   const s3Params = {
     Bucket: "shaken-assets",
