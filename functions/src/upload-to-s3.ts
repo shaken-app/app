@@ -2,12 +2,14 @@ import { v4 as uuidv4 } from "uuid";
 import AWS from "aws-sdk";
 
 AWS.config.update({ region: process.env.REGION || "us-east-1" });
-const s3 = new AWS.S3();
+const s3 = new AWS.S3({
+  accessKeyId: process.env.aws_id,
+  secretAccessKey: process.env.aws_secret
+});
 
 exports.handler = async () => await getUploadURL();
 
 const getUploadURL = async () => {
-  console.log('Ok here bud');
   const actionId = uuidv4();
   const s3Params = {
     Bucket: "shaken-assets",
