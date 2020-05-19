@@ -5,28 +5,34 @@ export interface ID {
   [e: string]: string;
 }
 
-interface PrismaCommon {
+interface PrismaCommonType {
   id: string;
   __typename: string;
 }
 
-export interface Glass extends PrismaCommon {
+export type GlassType = {
   name: string;
-}
+} & PrismaCommonType;
 
-export interface Cocktail extends PrismaCommon {
+export type Glasses = GlassType[];
+
+export type CocktailType = {
   name: string;
   info: string;
-  glass: Glass;
-}
+  glass: GlassType;
+} & PrismaCommonType;
 
-export interface CommonElement {
+export type CocktailsType = CocktailType[];
+
+export type ItemType = GlassType | CocktailType;
+
+export type CommonElementType = {
   className?: string;
   children?: ReactChild | ReactChild[] | string;
   key?: string;
 }
 
-export interface InputElement extends CommonElement {
+export interface InputElement extends CommonElementType {
   label: string;
   textarea?: boolean;
   id: string;
@@ -35,7 +41,7 @@ export interface InputElement extends CommonElement {
   onChange: (e: any) => void;
 }
 
-export interface ButtonElement extends CommonElement {
+export interface ButtonElement extends CommonElementType {
   onClick: () => void;
 }
 

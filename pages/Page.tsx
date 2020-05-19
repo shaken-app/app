@@ -1,5 +1,5 @@
 import React, { ReactNode } from "react";
-import Meta from "./Meta";
+import Meta from "./Meta/Meta";
 import Header from "../src/common/ui/Header";
 import styled from "styled-components";
 import PageWrap from "../src/components/page/PageWrap";

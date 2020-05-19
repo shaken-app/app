@@ -1,14 +1,14 @@
 import Router from "next/router";
 import React from "react";
 import styled from "styled-components";
-import {Cocktail, Glass} from "../interfaces";
-import {Pencil} from "../icons";
+import { ItemType } from "../interfaces";
+import { Pencil } from "../icons";
 import Button from "./Button";
 
 interface ViewItemHeader {
   deleteItem: any;
   id: string;
-  data: Cocktail | Glass;
+  data: ItemType;
   type: "glass" | "cocktail";
 }
 
